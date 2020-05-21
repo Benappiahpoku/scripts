@@ -1,0 +1,11 @@
+--2020-05-10 16:45:38--  https://ghanahealthservice.org/covid19/archive.php
+Resolving ghanahealthservice.org (ghanahealthservice.org)... 108.167.146.21
+Connecting to ghanahealthservice.org (ghanahealthservice.org)|108.167.146.21|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘health.html’
+
+health.html            [<=>             ]       0  --.-KB/s               health.html            [ <=>            ]  15.58K  54.2KB/s               health.html            [  <=>           ]  39.02K  68.8KB/s               health.html            [   <=>          ]  85.90K   103KB/s               health.html            [    <=>         ] 143.53K   142KB/s    in 1.0s    
+
+2020-05-10 16:45:42 (142 KB/s) - ‘health.html’ saved [146977]
+
