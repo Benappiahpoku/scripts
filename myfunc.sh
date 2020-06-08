@@ -6,7 +6,7 @@
                         #Function List
 # 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
 # 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
-# 14.
+# 14.get(install apps) 15.  
 
 #***                                                             ***#
 
@@ -129,5 +129,15 @@ function watchtask {
     onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
 
 }
+
+
+# get function > install apps
+function get {
+    sudo apt install -y "$1";
+    
+}
+
+
+
 
 
