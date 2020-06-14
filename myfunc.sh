@@ -6,7 +6,7 @@
                         #Function List
 # 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
 # 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
-# 14.get(install apps) 15.  
+# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive   
 
 #***                                                             ***#
 
@@ -28,7 +28,7 @@ function update {
 
 # upgrade function 
 function upgrade {
-    sudo apt upgrade
+    sudo apt -y upgrade
 }
 
 # pause function
@@ -133,11 +133,21 @@ function watchtask {
 
 # get function > install apps
 function get {
-    sudo apt install -y "$1";
+    sudo apt install -y "$@" ;
     
 }
 
+# mkfile function > mkfile new files
+function mkfile {
+    touch "$@"
+}
 
+#onedrive function 
+function onedrive {
+    cd ~/bin/onedrive;
+    nohup ./onedrive &
+    exit
+}
 
 
 
