@@ -6,7 +6,8 @@
                         #Function List
 # 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
 # 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
-# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive   
+# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive 
+# 17.compileSassMovejs(for firsttime)  
 
 #***                                                             ***#
 
@@ -81,7 +82,7 @@ function gitpush {
 
 # git pull function 
 function gitpull {
-    if git push origin master
+    if git pull origin master
     then
         echo ''
         echo '***Files were Fetched and Merged***'
@@ -99,7 +100,7 @@ function synchistory {
     history -n;
 }
 
-synchistory
+synchistory # the funtion is called automatically on boot 
 
 # serve function 
 function serve {
@@ -129,6 +130,33 @@ function watchtask {
     onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
 
 }
+
+# compile Sass and Move Javascipt function 
+
+function compileSassMovejs {
+
+
+# Message to start process
+    echo ''
+    echo 'Compiling your Sass Files to style.css in assets folder'
+
+# Compile Sass to style.css into Assets folder
+
+node-sass --output-style expanded --source-map=true  -o assets/css assets/scss; 
+
+
+# Message to start process
+    echo ''
+    echo 'Moving Javascript files and Style.css to dist folder'
+
+
+#Move Javascript and Css to dist folder
+
+cp assets/js/*.min.js  dist/js/;
+cp assets/css/*  dist/css/;
+
+}
+
 
 
 # get function > install apps
