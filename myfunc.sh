@@ -127,7 +127,7 @@ function watchtask {
 
 
 # watch the assests img then on change, minify image and send to dist/img
- onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
+# onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
 
 }
 
