@@ -81,7 +81,7 @@ function gitpush {
 
 # git pull function 
 function gitpull {
-    if git push origin master
+    if git pull origin master
     then
         echo ''
         echo '***Files were Fetched and Merged***'
