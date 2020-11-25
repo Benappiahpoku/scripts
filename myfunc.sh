@@ -6,7 +6,8 @@
                         #Function List
 # 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
 # 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
-# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive   
+# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive 
+# 17.build  18.imgcopy
 
 #***                                                             ***#
 
@@ -99,7 +100,7 @@ function synchistory {
     history -n;
 }
 
-synchistory
+synchistory # the funtion is called automatically on boot 
 
 # serve function 
 function serve {
@@ -117,19 +118,58 @@ function watchtask {
 
 # Message to start process
     echo ''
-    echo 'We have started watching your files! Go ahead and make changes'
+    echo 'We have started watching your Sass and Image folders! Go ahead and make changes'
     echo ''
 
 # watch the assets/scss compile css to dist/css
 
     onchange 'assets/scss/*.scss' -- node-sass --output-style expanded --source-map=true  -o dist/css assets/scss  &
 
-# watch the image directory and send to dist/img
 
-    onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
+# watch the assests img then on change, minify image and send to dist/img
+ onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
 
 }
 
+# Build - First time setup - sass, js and images function 
+
+function build {
+
+
+# Message to start process
+    echo ''
+    echo 'Compiling your style.scss to style.css in assets'
+
+# Compile Sass to style.css into Assets folder
+
+node-sass --output-style expanded --source-map=true  -o assets/css assets/scss; 
+
+
+# Message to start process
+    echo ''
+    echo 'Moving Javascript,img files and Style.css to dist folder'
+
+
+# Move Javascript, Css and img files to dist folder
+
+cp assets/js/*.min.js  dist/js/;
+cp assets/css/*  dist/css/;
+cp assets/img/*  dist/img/;
+
+}
+
+
+# Copy images from assets/img to dist/img folder
+
+function imgcopy {
+
+# Message to start process
+    echo ''
+    echo 'Moving image files from assets/img to dist/img'
+
+cp assets/img/*  dist/img/;
+
+}
 
 # get function > install apps
 function get {
