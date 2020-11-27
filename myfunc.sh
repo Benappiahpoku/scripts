@@ -125,6 +125,9 @@ function watchtask {
 
     onchange 'assets/scss/*.scss' -- node-sass --output-style expanded --source-map=true  -o dist/css assets/scss  &
 
+# watch the assests img then on change, minify image and send to dist/img
+ onchange 'assets/img/*' -- echo 'You have to run imgcopy function to move images from assets to dist folder'
+
 
 # watch the assests img then on change, minify image and send to dist/img
 # onchange 'assets/img/*' -- imagemin assets/img/* --out-dir dist/img
