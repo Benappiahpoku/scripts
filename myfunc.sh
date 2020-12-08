@@ -7,7 +7,7 @@
 # 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
 # 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
 # 14.get(install apps) 15.mkfile(creating new files) 16.onedrive 
-# 17.build  18.imgcopy
+# 17.build  18.imgcopy 19. upgradelist 20. reload (bash)
 
 #***                                                             ***#
 
@@ -31,6 +31,7 @@ function update {
 function upgrade {
     sudo apt -y upgrade
 }
+
 
 # pause function
 function pause {
@@ -191,6 +192,15 @@ function onedrive {
     nohup ./onedrive &
     exit
 }
+# upgradelist
 
+function upgradelist {
+	apt list --upgradable;
+}
+
+# Reload Bash
+function reload {
+source ~/.bashrc
+}
 
 
