@@ -4,51 +4,52 @@
 
 #***                                                             ***#
                         #Function List
-# 1.shut 2.restart 3.update 4.upgrade 5.pause 6.tmuxkill 7.vimsession
-# 8.gitadd 9.gitpush 10.gitpull 11.synchistory 12.serve 13.watchtask
-# 14.get(install apps) 15.mkfile(creating new files) 16.onedrive 
-# 17.build  18.imgcopy 19. upgradelist 20. reload (bash)
+# 1. shut 2. restart 3. update 4. upgrade 5. pause 6. tmuxkill 7. vimsession
+# 8. gitadd 9. gitpush 10. gitpull 11. synchistory 12. serve 13. watchtask
+# 14. build  15. imgcopy 16. get(install apps) 17. mkfile(creating new files) 
+# 18. onedrive 19. upgradelist 20. reload (bash) 21. gitpushmain 
+# 22. gitpullmain
 
 #***                                                             ***#
 
 
-# shutdown function
+#1 shutdown function
 function shut {
    shutdown now;  
 }
 
-# restart function 
+#2 restart function 
 function restart {
     shutdown -r now;
 }
 
-# update function
+#3 update function
 function update {
     sudo apt update
 }
 
-# upgrade function 
+#4 upgrade function 
 function upgrade {
     sudo apt -y upgrade
 }
 
 
-# pause function
+#5 pause function
 function pause {
     read -n1 -p 'Press Enter to continue ...'
 }
 
-# kill tmux sessions
+#6 kill tmux sessions
 function tmuxkill {
     tmux kill -session -a -t vimsession
 }
 
-# vimsession
+#7 vimsession
 function vimsession {
     tmux a -t vimsession
 }
 
-# git add function
+#8 git add function
 function gitadd {
     echo '***Showing the Git Status***';
     echo '';
@@ -67,7 +68,7 @@ function gitadd {
     echo ''
 }
 
-# git push function 
+#9 git push function 
 function gitpush {
     if git push origin master
     then 
@@ -81,7 +82,7 @@ function gitpush {
     fi
 }
 
-# git pull function 
+#10 git pull function 
 function gitpull {
     if git pull origin master
     then
@@ -95,7 +96,7 @@ function gitpull {
     fi
 }
 
-# history sync function
+#11 history sync function
 function synchistory {
     history -a;
     history -n;
@@ -103,7 +104,7 @@ function synchistory {
 
 synchistory # the funtion is called automatically on boot 
 
-# serve function 
+#12 serve function 
 function serve {
 
 # Message to start process
@@ -114,7 +115,7 @@ function serve {
     browser-sync start --server --files .
 }
 
-# watchtask function
+#13 watchtask function
 function watchtask {
 
 # Message to start process
@@ -135,7 +136,7 @@ function watchtask {
 
 }
 
-# Build - First time setup - sass, js and images function 
+#14 Build - First time setup - sass, js and images function 
 
 function build {
 
@@ -163,7 +164,7 @@ cp assets/img/*  dist/img/;
 }
 
 
-# Copy images from assets/img to dist/img folder
+#15 Copy images from assets/img to dist/img folder
 
 function imgcopy {
 
@@ -175,32 +176,68 @@ cp assets/img/*  dist/img/;
 
 }
 
-# get function > install apps
+#16 get function > install apps
 function get {
     sudo apt install -y "$@" ;
     
 }
 
-# mkfile function > mkfile new files
+#17 mkfile function > mkfile new files
 function mkfile {
     touch "$@"
 }
 
-#onedrive function 
+#18 onedrive function 
 function onedrive {
     cd ~/bin/onedrive;
     nohup ./onedrive &
     exit
 }
-# upgradelist
+#19 upgradelist
 
 function upgradelist {
 	apt list --upgradable;
 }
 
-# Reload Bash
+#20 Reload Bash
 function reload {
-source ~/.bashrc
+    source ~/.bashrc
 }
+
+#21 git push main function 
+function gitpushmain {
+    if git push origin main
+    then 
+        echo '' 
+        echo '***Files Uploaded to Github Successfully***'
+        echo ''
+    else
+        echo ''
+        echo '***Unable to upload files to Github***'
+        echo ''
+    fi
+}
+
+#22. git pull main function 
+function gitpullmain {
+    if git pull origin main
+    then
+        echo ''
+        echo '***Files were Fetched and Merged***'
+        echo ''
+    else 
+        echo ''
+        echo '***Unable to Fetch and Merge Files***'
+        echo ''
+    fi
+}
+
+
+
+
+
+
+
+
 
 
