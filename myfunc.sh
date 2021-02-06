@@ -8,7 +8,7 @@
 # 8. gitadd 9. gitpush 10. gitpull 11. synchistory 12. serve 13. watchtask
 # 14. build  15. imgcopy 16. get(install apps) 17. mkfile(creating new files) 
 # 18. onedrive 19. upgradelist 20. reload (bash) 21. gitpushmain 
-# 22. gitpullmain 23.  laravel (new project) 24. phpserve (laravel server start) 25. npmserve (laravel browser sync)
+# 22. gitpullmain 23.  laravel (new project) 24. phpserve (laravel server start) 25. npmserve (laravel browser sync) 26. updateall
 
 #***                                                             ***#
 
@@ -246,6 +246,11 @@ function phpserve {
 #25.  Running Browser sync in laravel 
 function npmserve {
 	npm run watch;
+}
+
+#26 update & upgrade function
+function updateall {
+     update && upgrade;
 }
 
 
